@@ -7,6 +7,8 @@
 
 import wx
 import settimer
+import glob
+import os.path
 
 class MyFrame(wx.Frame):
     def __init__(self, *args, **kwds):
@@ -70,12 +72,24 @@ class MyFrame(wx.Frame):
         # This works properly because it knows which specific label to modify.
         # The id was taken from a specific btn_set# button.
         getattr(self, "lbl_timer%d" % id).SetLabel("%02d:%02d" % (hours, minutes))
-            
+
+    def check_wav(self):
+        # check if there's a wav file beside the script. If there is none, show an error message and
+        # return false so the main frame won't show 
+        if not glob.glob(os.path.join(os.path.dirname(os.path.realpath(__file__)),"*.wav")):
+            d = wx.messagedialog(none, "you need to have a .wav file beside the script to make "
+            "it work", "wav required", wx.ok | wx.icon_error)
+            d.showmodal()
+            return False
+        return True
+
 
 if __name__ == "__main__":
     app = wx.PySimpleApp(0)
     wx.InitAllImageHandlers()
     main_frame = MyFrame(None, -1, "")
-    app.SetTopWindow(main_frame)
-    main_frame.Show()
-    app.MainLoop()
+
+    if main_frame.check_wav():
+        app.SetTopWindow(main_frame)
+        main_frame.Show()
+        app.MainLoop()

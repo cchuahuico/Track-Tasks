@@ -74,8 +74,8 @@ class MyFrame(wx.Frame):
         getattr(self, "lbl_timer%d" % id).SetLabel("%02d:%02d" % (hours, minutes))
 
     def check_wav(self):
-        # check if there's a wav file beside the script. If there is none, show an error message and
-        # return false so the main frame won't show 
+        # check if there's a wav file in the same dir as the script. If there is none, 
+        # show an error message and return false so the main frame won't show 
         if not glob.glob(os.path.join(os.path.dirname(os.path.realpath(__file__)),"*.wav")):
             d = wx.messagedialog(none, "you need to have a .wav file beside the script to make "
             "it work", "wav required", wx.ok | wx.icon_error)

@@ -39,4 +39,5 @@ class Timer(wx.Timer):
             self.Stop()
 
     def get_first_wav(self):
+        # returns the path of the first wav file detected in the same dir as the script
         return glob.glob(os.path.join(os.path.dirname(os.path.realpath(__file__)),"*.wav"))[0]  

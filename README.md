@@ -14,11 +14,11 @@ Usage:
 
 Screenshots:
 ------------
-![](http://i.imgur.com/P9DFA.png)
+![](http://i.imgur.com/e08IW.png)
 
-![](http://i.imgur.com/K3uBa.png)
+![](http://i.imgur.com/fvarV.png)
 
-![](http://i.imgur.com/4HHka.png)
+![](http://i.imgur.com/5NKFK.png)
 
 WAV:
 ----
